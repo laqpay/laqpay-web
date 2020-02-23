@@ -1,0 +1,6 @@
+{
+  "main": "electron-main.js",
+  "license": "MIT",
+  "description": "laqpay lite wallet",
+  "private": true
+}
