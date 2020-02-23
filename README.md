@@ -1,6 +1,4 @@
-![laqpay web](https://user-images.githubusercontent.com/8619106/56056491-f4bd8d80-5d79-11e9-8e55-8ebf2668edac.png)
-
-# Laqpay web client
+# LaQ Pay Wallet
 
 [![Build Status](https://travis-ci.org/laqpay/laqpay-web.svg?branch=master)](https://travis-ci.org/laqpay/laqpay-web)
 [![Known Vulnerabilities](https://snyk.io/test/github/laqpay/laqpay-web/badge.svg)](https://snyk.io/test/github/laqpay/laqpay-web)
