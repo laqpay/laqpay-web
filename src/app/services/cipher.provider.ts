@@ -50,7 +50,7 @@ export class CipherProvider {
   }
 
   generateAddress(seed): Observable<GenerateAddressResponse> {
-    const address = window['LaqpayCipher'].generateAddress(seed);
+    const address = window['SkycoinCipher'].generateAddress(seed);
 
     if (!address.error) {
       return Observable.of(this.convertToAddress(address));
@@ -60,7 +60,7 @@ export class CipherProvider {
   }
 
   prepareTransaction(inputs: TransactionInput[], outputs: TransactionOutput[]): Observable<string> {
-    const tx = window['LaqpayCipher'].prepareTransaction(JSON.stringify(inputs), JSON.stringify(outputs));
+    const tx = window['SkycoinCipher'].prepareTransaction(JSON.stringify(inputs), JSON.stringify(outputs));
 
     if (!tx.error) {
       return Observable.of(tx);

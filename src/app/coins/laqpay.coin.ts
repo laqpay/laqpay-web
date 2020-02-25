@@ -4,7 +4,7 @@ import { environment } from '../../environments/environment';
 
 export class LaqpayCoin extends BaseCoin {
   id = coinsId.laq;
-  nodeUrl = environment.production ? 'https://node.laqpay.com' : '';
+  nodeUrl = environment.production ? 'https://wallet.laqpay.com' : '';
   coinName = 'LaQ Pay';
   coinSymbol = 'LAQ';
   hoursName = 'LAQH';

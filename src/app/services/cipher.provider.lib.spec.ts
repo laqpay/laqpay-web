@@ -102,7 +102,7 @@ describe('CipherProvider Lib', () => {
 
         it(`should verify signature correctly`, done => {
           testData.forEach(data => {
-            const result = window['LaqpayCipherExtras'].verifyPubKeySignedHash(data.public_key, data.signature, data.hash);
+            const result = window['SkycoinCipherExtras'].verifyPubKeySignedHash(data.public_key, data.signature, data.hash);
             expect(result).toBeNull();
             done();
           });
@@ -110,7 +110,7 @@ describe('CipherProvider Lib', () => {
 
         it(`should check signature correctly`, done => {
           testData.forEach(data => {
-            const result = window['LaqpayCipherExtras'].verifyAddressSignedHash(data.address, data.signature, data.hash);
+            const result = window['SkycoinCipherExtras'].verifyAddressSignedHash(data.address, data.signature, data.hash);
             expect(result).toBeNull();
             done();
           });
@@ -118,7 +118,7 @@ describe('CipherProvider Lib', () => {
 
         it(`should verify signed hash correctly`, done => {
           testData.forEach(data => {
-            const result = window['LaqpayCipherExtras'].verifySignatureRecoverPubKey(data.signature, data.hash);
+            const result = window['SkycoinCipherExtras'].verifySignatureRecoverPubKey(data.signature, data.hash);
             expect(result).toBeNull();
             done();
           });
@@ -126,7 +126,7 @@ describe('CipherProvider Lib', () => {
 
         it(`should generate public key correctly`, done => {
           testData.forEach(data => {
-            const pubKey = window['LaqpayCipherExtras'].pubKeyFromSig(data.signature, data.hash);
+            const pubKey = window['SkycoinCipherExtras'].pubKeyFromSig(data.signature, data.hash);
             expect(pubKey).toBeTruthy();
             expect(pubKey === data.public_key).toBeTruthy();
             done();
@@ -135,7 +135,7 @@ describe('CipherProvider Lib', () => {
 
         it(`sign hash should be created`, done => {
           testData.forEach(data => {
-            const sig = window['LaqpayCipherExtras'].signHash(data.hash, data.secret_key);
+            const sig = window['SkycoinCipherExtras'].signHash(data.hash, data.secret_key);
             expect(sig).toBeTruthy();
             done();
           });
@@ -173,7 +173,7 @@ function generateAddresses(seed: string, keys: any[]): Address[] {
 }
 
 function generateAddress(seed: string): GenerateAddressResponse {
-  const address = window['LaqpayCipher'].generateAddress(seed);
+  const address = window['SkycoinCipher'].generateAddress(seed);
   return {
     address: {
       address: address.address,
@@ -185,13 +185,13 @@ function generateAddress(seed: string): GenerateAddressResponse {
 }
 
 function verifyAddress(address) {
-  const addressFromPubKey = window['LaqpayCipherExtras'].addressFromPubKey(address.public_key);
-  const addressFromSecKey = window['LaqpayCipherExtras'].addressFromSecKey(address.secret_key);
+  const addressFromPubKey = window['SkycoinCipherExtras'].addressFromPubKey(address.public_key);
+  const addressFromSecKey = window['SkycoinCipherExtras'].addressFromSecKey(address.secret_key);
 
   expect(addressFromPubKey && addressFromSecKey && addressFromPubKey === addressFromSecKey).toBe(true);
 
-  expect(window['LaqpayCipherExtras'].verifySeckey(address.secret_key)).toBe(null);
-  expect(window['LaqpayCipherExtras'].verifyPubkey(address.public_key)).toBe(null);
+  expect(window['SkycoinCipherExtras'].verifySeckey(address.secret_key)).toBe(null);
+  expect(window['SkycoinCipherExtras'].verifyPubkey(address.public_key)).toBe(null);
 }
 
 function verifyAddresses(addresses) {

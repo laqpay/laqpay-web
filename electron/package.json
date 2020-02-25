@@ -16,19 +16,19 @@
         "mac": {
             "category": "public.app-category.productivity",
             "extraFiles": [
-              {
-                "from": "./server/${os}_${arch}/",
-                "to": "./Resources/app"
-              }
+                {
+                    "from": "./server/${os}_${arch}/",
+                    "to": "./Resources/app"
+                }
             ]
         },
         "win": {
             "target": "nsis",
             "extraFiles": [
-              {
-                "from": "./server/${os}_${arch}/",
-                "to": "./resources/app"
-              }
+                {
+                    "from": "./server/${os}_${arch}/",
+                    "to": "./resources/app"
+                }
             ]
         },
         "linux": {
@@ -39,8 +39,8 @@
                     "to": "./Resources"
                 },
                 {
-                  "from": "./server/${os}_${arch}/",
-                  "to": "./resources/app"
+                    "from": "./server/${os}_${arch}/",
+                    "to": "./resources/app"
                 }
             ]
         },
