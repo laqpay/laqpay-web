@@ -137,7 +137,7 @@ export class BlockchainService {
       .flatMap(() => this.apiService.get('health'))
       .map ((response: any) => {
         this.globalsService.setNodeVersion(response.version.version);
-        if (isEqualOrSuperiorVersion(response.version.version, '0.25.0')) {
+        if (isEqualOrSuperiorVersion(response.version.version, '0.1.1')) {
           this.maxDecimals = response.user_verify_transaction.max_decimals;
           this.burnRateInternal = new BigNumber(response.user_verify_transaction.burn_factor);
         } else {

@@ -60,7 +60,7 @@ export class SpendingService {
     changeAddress: string|null): Observable<Transaction> {
 
     return this.globalsService.getValidNodeVersion().flatMap (version => {
-      if (isEqualOrSuperiorVersion(version, '0.26.0')) {
+      if (isEqualOrSuperiorVersion(version, '0.1.1')) {
         if (unspents) {
           addresses = null;
         }
@@ -371,7 +371,7 @@ export class SpendingService {
         const requestedAddresses = addresses ? addresses.join(',') : wallet.addresses.map(a => a.address).join(',');
 
         let outputsRequest: Observable<any>;
-        if (isEqualOrSuperiorVersion(version, '0.25.0')) {
+        if (isEqualOrSuperiorVersion(version, '0.1.1')) {
           outputsRequest = this.apiService.post('outputs', { addrs: requestedAddresses });
         } else {
           outputsRequest = this.apiService.get('outputs', { addrs: requestedAddresses });
@@ -421,7 +421,7 @@ export class SpendingService {
     } else {
       return this.globalsService.getValidNodeVersion().flatMap (version => {
         let outputsRequest: Observable<any>;
-        if (isEqualOrSuperiorVersion(version, '0.25.0')) {
+        if (isEqualOrSuperiorVersion(version, '0.1.1')) {
           outputsRequest = this.apiService.post('outputs', { addrs: addresses });
         } else {
           outputsRequest = this.apiService.get('outputs', { addrs: addresses });

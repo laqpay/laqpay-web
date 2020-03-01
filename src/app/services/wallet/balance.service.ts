@@ -102,7 +102,7 @@ export class BalanceService {
     const formattedAddresses = addresses.map(a => a.address).join(',');
 
     return this.globalsService.getValidNodeVersion().flatMap (version => {
-      if (isEqualOrSuperiorVersion(version, '0.25.0')) {
+      if (isEqualOrSuperiorVersion(version, '0.1.1')) {
         return this.apiService.post('balance', { addrs: formattedAddresses });
       } else {
         return this.apiService.get('balance', { addrs: formattedAddresses });

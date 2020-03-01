@@ -36,7 +36,7 @@ export class HistoryService {
 
         return this.globalsService.getValidNodeVersion().flatMap (version => {
           let TxObsv: Observable<any>;
-          if (isEqualOrSuperiorVersion(version, '0.25.0')) {
+          if (isEqualOrSuperiorVersion(version, '0.1.1')) {
             TxObsv = this.retrieveAddressesTransactions(addresses).map(transactions => {
               return transactions.sort((a, b) =>  b.timestamp - a.timestamp);
             });
@@ -128,7 +128,7 @@ export class HistoryService {
   }
 
   retrieveAddressTransactions(address: Address): Observable<NormalTransaction[]> {
-    return this.apiService.get('explorer/address', { address: address.address })
+    return this.apiService.get('transactions', { address: address.address })
       .map(transactions => transactions.map(transaction => ({
         addresses: [],
         balance: new BigNumber('0'),
@@ -159,7 +159,7 @@ export class HistoryService {
 
   getAllPendingTransactions(): Observable<any> {
     return this.globalsService.getValidNodeVersion().flatMap (version => {
-      if (isEqualOrSuperiorVersion(version, '0.25.0')) {
+      if (isEqualOrSuperiorVersion(version, '0.1.1')) {
         return this.apiService.get('pendingTxs', { verbose: true });
       } else {
         return this.apiService.get('pendingTxs');
